@@ -38,19 +38,33 @@ git commit -m "feat: brief description of what you did"
 ## ☁️ Daily Wrap-up: Backup to GitHub
 When you're done for the day or finished a feature, push your branch:
 ```bash
-git push origin feature/your-feature-name
+git push -u origin HEAD
 ```
 
 ---
 
-## 🏁 Merging Changes
-Once your feature is complete on GitHub:
-1. Open a **Pull Request (PR)** on GitHub.com.
-2. Merge the PR.
-3. Locally, clean up and move back to the main track:
-```bash
-git checkout main
-git pull origin main
-```
+## 🏁 Merging Changes (The CLI Way)
+Now that you have the GitHub CLI installed, you don't need to visit the website to merge!
+
+1. **Create a Pull Request:**
+   ```bash
+   gh pr create --title "Your feature title" --body "What you did"
+   ```
+2. **Merge the PR:**
+   ```bash
+   gh pr merge --merge --delete-branch
+   ```
+3. **Sync back to Main:**
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+
+---
+
+## 🧹 Keeping it Clean: .gitignore
+To prevent tracking "junk" files (like `.DS_Store` or `node_modules`), ensure you have a `.gitignore` file. I've created a basic one for you.
+
+---
 
 > **Pro Tip:** Commit small, logical chunks of work. It makes finding bugs much easier later!
